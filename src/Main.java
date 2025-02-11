@@ -53,23 +53,17 @@ public class Main {
         System.out.println("Задача 4");
 
         char[] reverseFullName = {'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
-        StringBuilder firstName1  = new StringBuilder();
-        StringBuilder secondName1 = new StringBuilder();
-        boolean space = false;
-
-        for (char i : reverseFullName) {
-            if (i == ' '){
-                space = true;
-            } if (!space) {
-                firstName1.append(i);
-            } else {
-                secondName1.append(i);
-            }
+        int left = 0;
+        int right = reverseFullName.length - 1;
+        while (left < right) {
+            char x = reverseFullName[left];
+            reverseFullName[left] = reverseFullName[right];
+            reverseFullName[right] = x;
+            left++;
+            right--;
         }
-        String firstName = new StringBuilder(firstName1).reverse().toString();
-        String secondName = new StringBuilder(secondName1).reverse().toString();
-
-        System.out.println(firstName + " " + secondName);
-
+        for (char i : reverseFullName) {
+            System.out.print(i);
+        }
     }
 }
